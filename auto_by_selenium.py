@@ -53,8 +53,8 @@ browser.switch_to.frame('frame')
 browser.find_element_by_css_selector("button.btn.btn-info").click()
 #暂停时间=5时，太长会出现已有一个主机连接的错误《ConnectionAbortedError:[WinError 10053] 你的主机中的软件中止了一个已建立的连接。》
 time.sleep(3)
-#填写项目信息
 
+#填写项目信息
 #进入到项目窗的frame
 browser.switch_to.frame(browser.find_element_by_xpath("//iframe[contains(@src,'4029')]"))
 browser.find_element_by_id("chnlIdentity").clear()
@@ -67,12 +67,10 @@ browser.find_element_by_id("chnlName").clear()
 browser.find_element_by_id("chnlName").send_keys(u"分部介绍")
 
 #退回到操作界面的frame
-#browser.switch_to.parent_frame()
-browser.find_element_by_class_name("btn btn-primary").click()
+browser.switch_to.parent_frame()
+browser.find_element_by_xpath("html/body/div[3]/div/div/div[3]/button[2]").click()
 
 
 #回到顶层frame
 #browser.switch_to.default_content()
-#browser.fill('userName','00371747')
-#browser.fill('pwd','WATER13a')
 #browser.find_by_name('submit').click()
