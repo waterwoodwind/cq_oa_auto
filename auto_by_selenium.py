@@ -51,10 +51,12 @@ browser.switch_to.frame('frame')
 
 #创建项目按钮
 browser.find_element_by_css_selector("button.btn.btn-info").click()
-
+#暂停时间=5时，太长会出现已有一个主机连接的错误《ConnectionAbortedError:[WinError 10053] 你的主机中的软件中止了一个已建立的连接。》
+time.sleep(3)
 #填写项目信息
+
 #进入到项目窗的frame
-browser.switch_to.frame(0)
+browser.switch_to.frame(browser.find_element_by_xpath("//iframe[contains(@src,'4029')]"))
 browser.find_element_by_id("chnlIdentity").clear()
 browser.find_element_by_id("chnlIdentity").send_keys("CQHQAQZLFBJS")
 browser.find_element_by_id("sortNo").clear()
@@ -63,12 +65,14 @@ browser.find_element_by_id("pageSize").clear()
 browser.find_element_by_id("pageSize").send_keys("0")
 browser.find_element_by_id("chnlName").clear()
 browser.find_element_by_id("chnlName").send_keys(u"分部介绍")
-# ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-browser.find_element_by_css_selector("div.modal-footer > button.btn.btn-primary").click()
+
+#退回到操作界面的frame
+#browser.switch_to.parent_frame()
+browser.find_element_by_class_name("btn btn-primary").click()
 
 
 #回到顶层frame
-browser.switch_to.default_content()
+#browser.switch_to.default_content()
 #browser.fill('userName','00371747')
 #browser.fill('pwd','WATER13a')
 #browser.find_by_name('submit').click()
