@@ -35,15 +35,39 @@ time.sleep(2)
 nav = browser.find_element_by_id('nav_width_a')
 ActionChains(browser).move_to_element(nav).perform()
 
+#进入左侧组织树的frame
 browser.switch_to.frame(4)
-browser.find_element_by_id('ztree_7_ico').click()
+browser.find_element_by_xpath("//span[contains(text(),'重庆分公司门户')]").click()
 time.sleep(2)
+browser.find_element_by_xpath("//span[contains(text(),'组织机构')]").click()
+time.sleep(2)
+browser.find_element_by_xpath("//span[contains(text(),'生产部门')]").click()
+time.sleep(2)
+browser.find_element_by_xpath("//span[contains(text(),'航空安全质量分部')]").click()
+time.sleep(2)
+#进入到操作界面
 browser.switch_to.frame('frame')
-#以上已经进入到重庆分公司的操作界面
+
 
 #创建项目按钮
 browser.find_element_by_css_selector("button.btn.btn-info").click()
 
+#填写项目信息
+#进入到项目窗的frame
+browser.switch_to.frame(0)
+browser.find_element_by_id("chnlIdentity").clear()
+browser.find_element_by_id("chnlIdentity").send_keys("CQHQAQZLFBJS")
+browser.find_element_by_id("sortNo").clear()
+browser.find_element_by_id("sortNo").send_keys("0")
+browser.find_element_by_id("pageSize").clear()
+browser.find_element_by_id("pageSize").send_keys("0")
+browser.find_element_by_id("chnlName").clear()
+browser.find_element_by_id("chnlName").send_keys(u"分部介绍")
+# ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+browser.find_element_by_css_selector("div.modal-footer > button.btn.btn-primary").click()
+
+
+#回到顶层frame
 browser.switch_to.default_content()
 #browser.fill('userName','00371747')
 #browser.fill('pwd','WATER13a')
