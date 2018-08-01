@@ -5,6 +5,7 @@ Created on Mon Jul 30 15:29:13 2018
 @author: 46979
 """
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
 import time
 
 with open('user_pwd.txt') as f:
@@ -58,14 +59,16 @@ time.sleep(3)
 #进入到项目窗的frame
 browser.switch_to.frame(browser.find_element_by_xpath("//iframe[contains(@src,'4029')]"))
 browser.find_element_by_id("chnlIdentity").clear()
-browser.find_element_by_id("chnlIdentity").send_keys("CQHQAQZLFBJS")
+browser.find_element_by_id("chnlIdentity").send_keys("CQHQAQZLFBJSS")
 browser.find_element_by_id("sortNo").clear()
 browser.find_element_by_id("sortNo").send_keys("0")
 browser.find_element_by_id("pageSize").clear()
 browser.find_element_by_id("pageSize").send_keys("0")
 browser.find_element_by_id("chnlName").clear()
 browser.find_element_by_id("chnlName").send_keys(u"分部介绍")
-
+#选择框
+Select(browser.find_element_by_id("indexTpl")).select_by_visible_text(u"二级部门组织架构子菜单")
+Select(browser.find_element_by_id("detailTpl")).select_by_visible_text(u"详情模板")
 #退回到操作界面的frame
 browser.switch_to.parent_frame()
 browser.find_element_by_xpath("html/body/div[3]/div/div/div[3]/button[2]").click()
