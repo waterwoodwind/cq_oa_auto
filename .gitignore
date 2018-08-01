@@ -103,3 +103,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 user_pwd.txt
+cq_oa_options.csv
