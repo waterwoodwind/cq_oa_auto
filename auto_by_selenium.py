@@ -18,15 +18,15 @@ from selenium.webdriver.common.action_chains import ActionChains
 #2.通过浏览器向服务器发送URL请求
 browser.get("http://i.ameco.com.cn/login.jsp")
 
-time.sleep(3)
+browser.implicitly_wait(15)
 username = browser.find_element_by_name('userName')
 username.send_keys(user_str)
 pwd = browser.find_element_by_name('pwd')
 pwd.send_keys(password_str)
 submit = browser.find_element_by_name('submit')
 submit.click()
+browser.implicitly_wait(15)
 
-time.sleep(3)
 cms = browser.find_element_by_id('menu-lv1-095')
 ActionChains(browser).move_to_element(cms).perform()
 time.sleep(2)
