@@ -24,11 +24,7 @@ def get_loc_options_list(config_str):
     options_list = options.split(',')
     return loc_list,options_list
 
+
 if __name__ == "__main__":
-    config_list = get_config_list()
-    config_str = config_list[0]
-    index = config_str.find(',')
-    loc = config_str[:index]
-    options = config_str[index+1:]
-    loc_list = loc.split('-')
-    options_list = options.split(',')
+    sentence = "职称状况，成绩状况，基础信息，奖惩通报，员工在岗培养，培训教材，英语培训资料，兼职教员授权信和考官信息，员工服务"
+    sentence_list = sentence.split('，')
