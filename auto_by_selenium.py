@@ -29,7 +29,7 @@ def login_in_oa():
     submit.click()
     browser.implicitly_wait(15)
     
-def into_tree_cq():
+def into_tree(sub_name):
     cms = browser.find_element_by_id('menu-lv1-095')
     ActionChains(browser).move_to_element(cms).perform()
     time.sleep(2)
@@ -40,7 +40,8 @@ def into_tree_cq():
     time.sleep(1)
     #进入左侧组织树的frame
     browser.switch_to.frame(4)
-    browser.find_element_by_xpath("//span[contains(text(),'重庆分公司门户')]").click()
+    xpath_sub = "//span[contains(text(),'" + sub_name + "')]"
+    browser.find_element_by_xpath(xpath_sub).click()
     time.sleep(2)
     
 def switch_tree(loc_list):
@@ -95,13 +96,13 @@ if __name__ == "__main__":
     config_list = get_config_list()
     for config_item in config_list:
         loc_list,options_list = get_loc_options_list(config_item)
-        into_tree_cq()
+        into_tree("呼和浩特分公司")
         switch_tree(loc_list)
         creat_item(options_list)
         browser.switch_to.default_content()
         browser.refresh()
         browser.implicitly_wait(15)
-    
+    into_tree("呼和浩特分公司")
 
 #回到顶层frame
 #browser.switch_to.default_content()
