@@ -60,7 +60,8 @@ def creat_item(options_list):
     
     #填写项目信息
     #进入到项目窗的frame
-    browser.switch_to.frame(browser.find_element_by_xpath("//iframe[contains(@src,'4029')]"))
+    browser.switch_to.frame(browser.find_element_by_xpath("//iframe[contains(@src,'jsp?siteId=')]"))
+    time.sleep(1)
     browser.find_element_by_id("chnlIdentity").clear()
     browser.find_element_by_id("chnlIdentity").send_keys(options_list[0])
     time.sleep(1)
