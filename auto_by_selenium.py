@@ -94,16 +94,16 @@ def creat_item(options_list):
     
 if __name__ == "__main__":
     login_in_oa()
-    config_list = get_config_list()
+    config_list, company = get_config_list()
     for config_item in config_list:
         loc_list,options_list = get_loc_options_list(config_item)
-        into_tree("呼和浩特分公司")
+        into_tree(company)
         switch_tree(loc_list)
         creat_item(options_list)
         browser.switch_to.default_content()
         browser.refresh()
         browser.implicitly_wait(15)
-    into_tree("呼和浩特分公司")
+    into_tree(company)
 
 #回到顶层frame
 #browser.switch_to.default_content()

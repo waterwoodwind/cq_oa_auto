@@ -13,8 +13,12 @@ def get_config_list():
             config_list.append(line)
             print(line)
         #删除第一行标题
+        company = config_list[0]
+        index = company.find(',')
+        company = company[:index]
         del(config_list[0])
-    return config_list
+        del(config_list[0])
+    return config_list, company
 
 def get_loc_options_list(config_str):
     index = config_str.find(',')
@@ -28,3 +32,4 @@ def get_loc_options_list(config_str):
 if __name__ == "__main__":
     sentence = "职称状况，成绩状况，基础信息，奖惩通报，员工在岗培养，培训教材，英语培训资料，兼职教员授权信和考官信息，员工服务"
     sentence_list = sentence.split('，')
+    c_list, company = get_config_list()
