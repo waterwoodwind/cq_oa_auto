@@ -12,7 +12,7 @@ from learn_csv import get_loc_options_list
 import time
 
 #1.创建Chrome浏览器对象，这会在电脑上在打开一个浏览器窗口
-browser = webdriver.Firefox(executable_path ="C:\Python37\geckodriver")
+browser = webdriver.Firefox()
 
 def login_in_oa():
     #2.通过浏览器向服务器发送URL请求
