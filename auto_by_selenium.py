@@ -53,6 +53,7 @@ def switch_tree(loc_list):
 def creat_item(options_list):
     #从上一层frame进入到操作界面
     browser.switch_to.frame('frame')
+    time.sleep(1)
     #创建项目按钮
     browser.find_element_by_css_selector("button.btn.btn-info").click()
     #暂停时间=5时，太长会出现已有一个主机连接的错误《ConnectionAbortedError:[WinError 10053] 你的主机中的软件中止了一个已建立的连接。》
